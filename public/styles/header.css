@@ -1,0 +1,15 @@
+header {
+  height: 540px;
+  width: 100%;
+  background-color: #ffcf99;
+  background-image: url(../images/black-thread-light.png);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 130px;
+}
+
+header h2{
+  margin-top: 0;
+}
+
