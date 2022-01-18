@@ -41,6 +41,7 @@ label[for="tweet-text"] {
 .submit-count {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 1 em;
 }
 
 .red {

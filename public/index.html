@@ -32,6 +32,9 @@
     <!--new-tweet css-->
     <link rel="stylesheet" href="./styles/new-tweet.css" type="text/css" />
 
+    <!--tweet css-->
+    <link rel="stylesheet" href="./styles/tweet.css" type="text/css" />
+
     <!-- App JS -->
     <script type="text/javascript" src="./scripts/client.js"></script>
     <script type="text/javascript" src="./scripts/composer-char-counter.js"></script>
@@ -61,6 +64,7 @@
 
     <!-- Page-specific (main) content here -->
     <main class="container">
+      <section class="new-tweet">
       <h2>Compose Tweet</h2>
       <form action="/tweets" method="POST">
         <label for="tweet-text">What are you humming about?</label>
@@ -70,6 +74,63 @@
           <output name="counter" class="counter" for="tweet-text">140</output>
         </div>
       </form>
+    </section>
+
+    <article class= "tweet-container">
+      <header>
+        <i class="fas fa-user-secret fa-2x"></i>
+        <div class="username">
+          Mr. Beast
+        </div>
+        <div class="user-id">
+          @beastMr
+        </div>
+      </header>
+
+      <div class="tweet-content">
+        I am Mr. Beast.
+      </div>
+
+        <footer>
+          <div class="date-posted">
+            4 days ago
+          </div>
+
+          <div class="tweet-actions">
+            <a href="#"><i class="fas fa-flag"></i></a>
+            <a href="#"><i class="fas fa-retweet"></i></a>
+            <a href="#"><i class="fas fa-heart"></i></a>
+          </div>
+        </footer>
+    </article>
+
+    <article class= "tweet-container">
+      <header>
+        <i class="fas fa-paw fa-2x"></i>
+        <div class="username">
+          Harry Potter
+        </div>
+        <div class="user-id">
+          @thatHarry
+        </div>
+      </header>
+
+      <div class="tweet-content">
+        Casting spells
+      </div>
+
+        <footer>
+          <div class="date-posted">
+            10 days ago
+          </div>
+
+          <div class="tweet-actions">
+            <a href="#"><i class="fas fa-flag"></i></a>
+            <a href="#"><i class="fas fa-retweet"></i></a>
+            <a href="#"><i class="fas fa-heart"></i></a>
+          </div>
+        </footer>
+    </article>
 
     </main>
   </body>
