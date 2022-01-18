@@ -5,34 +5,22 @@
  */
 
 // Fake data taken from initial-tweets.json
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd"
-    },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
 
 
     (function ($) {
 
+      const loadTweets = function() {
+        $.ajax({
+          url: '/tweets',
+          type: "GET",
+        })
+        .done((response) => {
+          renderTweets(response);
+        })
+        .fail((error) => {
+          console.error("error", error);
+        })
+      }
       // Checks whether the avatars property contains an http link or an svg class from one of the project libraries
       const avatarType = function (avatar) {
         const regex = new RegExp("^http");
@@ -99,11 +87,12 @@ const data = [
           type: 'POST',
           data: $formData
         })
-          .done((response) => {
-            console.log('response:', response);
-            console.log('data:', data);
+          .done(() => {
+            $(this).children('#tweet-text').val('');
+            $(this).parent().siblings('#tweets-container').html('');
+            loadTweets();
           })
           .fail((error) => {
-            console.log('error:', error)
+            console.error('error:', error)
           })
       });
