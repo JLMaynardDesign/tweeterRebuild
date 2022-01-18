@@ -33,7 +33,7 @@ label[for="tweet-text"] {
   background-color: #6e85d4;
 }
 
-.new-tweet .counter {
+.counter {
   font-family: "Bungee";
   color: #a80515;
 }
@@ -41,4 +41,8 @@ label[for="tweet-text"] {
 .submit-count {
   display: flex;
   justify-content: space-between;
+}
+
+.red {
+  color: #a80515;
 }
