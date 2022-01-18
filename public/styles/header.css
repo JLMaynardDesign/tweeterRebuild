@@ -1,12 +1,13 @@
 body > header {
   height: 540px;
   width: 100%;
-  background-color: #ffcf99;
+  background-color: #f09936;
   background-image: url(../images/black-thread-light.png);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-top: 130px;
+  align-items: center;
+  padding-top: 110px;
 }
 
 header h2{

@@ -5,49 +5,45 @@
  */
 
 // Fake data taken from initial-tweets.json
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd"
-    },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
+
+
+($(document).ready(function() {
+
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
+  const loadTweets = function () {
+    $.ajax({
+      url: '/tweets',
+      type: "GET",
+    })
+      .done((response) => {
+        renderTweets(response);
+      })
+      .fail((error) => {
+        console.error("error", error);
+      })
   }
 
+  loadTweets();
+  // Checks whether the avatars property contains an http link or an svg class from one of the project libraries
+  const avatarType = function (avatar) {
+    const regex = new RegExp("^http");
 
-    (function ($) {
+    if (regex.test(avatar)) {
+      return `<img src=${avatar}/>`;
+    } else {
+      return avatar;
+    }
+  };
 
-      // Checks whether the avatars property contains an http link or an svg class from one of the project libraries
-      const avatarType = function (avatar) {
-        const regex = new RegExp("^http");
-
-        if (regex.test(avatar)) {
-          return `<img src=${avatar}/>`;
-        } else {
-          return avatar;
-        }
-      };
-
-      const createTweetElement = function (tweet) {
-        /* Your code for creating the tweet element */
-        // ...
-        let $tweet = `
+  const createTweetElement = function (obj) {
+    /* Your code for creating the tweet element */
+    // ...
+    let $tweet = `
   <article class = "tweet-container">
   <header>
   ${obj.user.avatars ? avatarType(obj.user.avatars) : '<i class="fas fa-user-secret fa-2x"></i>'}
@@ -57,9 +53,10 @@ const data = [
   <div class="user-id">
   ${obj.user.handle}
   </div>
+  </header>
 
   <div class="tweet-content">
-  ${obj.content.text}
+  ${escape(obj.content.text)}
   </div>
 
   <footer>
@@ -75,37 +72,48 @@ const data = [
   </footer>
   </article>
   `;
-        return $tweet;
-      };
+    return $tweet;
+  };
 
-      const renderTweets = function (tweets) {
-        // loops through tweets
-        $(`#tweets-container`).empty();
-        for (let tweetObj of tweets) {
-          // calls createTweetElement for each tweet
-          // takes return value and appends it to the tweets container
-          const $tweet = createTweetElement(tweetObj);
-          $(`#tweets-container`).prepend($tweet);
-        }
-      };
+  const renderTweets = function (tweets) {
+    // loops through tweets
+    $(`#tweets-container`).empty();
+    for (let tweetObj of tweets) {
+      // calls createTweetElement for each tweet
+      // takes return value and appends it to the tweets container
+      const $tweet = createTweetElement(tweetObj);
+      $(`#tweets-container`).prepend($tweet);
+    }
+  };
 
-      $('.new-tweet form').on('submit', function (event) {
-        event.preventDefault();
-        const $formData = $(this).serialize();
-        console.log($formData);
+  $('.new-tweet form').on('submit', function (e) {
+    e.preventDefault();
+    const $inputField = $(this).find('#tweet-text').val();
+    $('#error-blank').slideUp();
+    $('#error-exceed').slideUp();
 
-        $.ajax({
-          url: '/tweets',
-          type: 'POST',
-          data: $formData
+    if ($inputField.length < 1) {
+      $('#error-blank').slideDown();
+    } else if ($inputField.length > 140) {
+      $('#error-exceed').slideDown();
+    } else {
+      let $formData = $(this).serialize();
+
+
+      $.ajax({
+        url: '/tweets',
+        type: 'POST',
+        data: $formData
+      })
+        .then(() => {
+          $(this).children('#tweet-text').val('');
+          $(this).parent().siblings('.counter').html('140');
+          loadTweets();
         })
-          .done((response) => {
-            console.log('response:', response);
-            console.log('data:', data);
-          })
-          .fail((error) => {
-            console.log('error:', error)
-          })
-      });
+        .fail((error) => {
+          console.error('error:', error);
+        })
+    }
+  });
 
-    });
+})

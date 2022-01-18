@@ -15,7 +15,7 @@ html {
  */
 
 body {
-  color: #545149;
+  color: #ad8b2d;
   background-color: #f4f1ec;
   font-size: 24px;
 }
@@ -30,6 +30,50 @@ html {
  main {
    background-color: #FFDB58;
    margin: auto;
-   width: 85%;
+   width: 90%;
  }
 
+ .body {
+   display: flex;
+   justify-content: center;
+ }
+
+ body > header {
+   width: 540px;
+   margin: 320px 4%;
+   padding: 4%;
+ }
+
+ .container {
+   width: 62%;
+   margin-top: 120px;
+ }
+
+@media (min-width: 1024px) {
+  nav {
+    background-color: green;
+  }
+
+  body {
+    display: flex;
+    justify-content: center;
+  }
+
+  body > header {
+    width: 520px;
+    margin: 280px 4%;
+    padding: 5%
+  }
+
+  .container {
+    width: 60%;
+    margin-top: 110px;
+  }
+}
+
+@Media (min-width: 1335px) {
+  body {
+    width: 1335px;
+    margin: auto;
+  }
+}

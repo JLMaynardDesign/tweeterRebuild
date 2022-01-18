@@ -1,13 +1,13 @@
 .tweet-container {
-  width: 85%;
+  width: 92%;
   height: 100%;
   border: 2px solid black;
   font-family: "Source Sans Pro", sans-serif;
-  margin: 0 auto 2em 2em;
+  margin: 0 auto 2em;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  row-gap: 1.6em;
+  row-gap: 1.3em;
   padding: 1em;
 }
 
@@ -42,10 +42,10 @@
 }
 
 .tweet-container:hover {
-  box-shadow: 3px 3px 0;
-  color: #ed9079;
+  box-shadow: 3px 3px 0 black;
 }
 
 .tweet-actions a:hover {
-  color: #C0C0C0;
+  color: gainsboro;
 }
+

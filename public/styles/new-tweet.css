@@ -1,32 +1,36 @@
-main .container {
-  width: 100vw;
-}
 
 .new-tweet {
-  width: 85%;
+  width: 90%;
   margin: auto;
 }
 
 .new-tweet h2{
   font-size: 1em;
+  margin-top: 30px;
 }
 
 label[for="tweet-text"] {
   visibility: hidden;
 }
 
+.new-tweet p {
+  width: 80%;
+  border: 2px solid #428792;
+  text-align: center;
+  color: purple;
+  display: none;
+}
+
 .new-tweet textarea {
-  background-color: #428792;
+  background-color: #b0c4c7;
   border: none;
   border-bottom: 2px solid #a80515;
   width: 100%;
   padding-bottom: 0;
   margin-bottom: 0.5em;
-}
-
-.new-tweet textarea:focus-visible {
   resize: none;
 }
+
 .new-tweet button{
   font-family: "Bungee";
   color: #FFFFFF;
