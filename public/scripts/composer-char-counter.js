@@ -1,18 +1,18 @@
+/* eslint-disable no-undef */
 
-
-
-$(document).ready(function() {
-
-  $('#tweet-text').on('input', function() {
-    const $counter = $(this).next().children('.counter');
-    const remainingChars = 140 - this.value.length;
-
-    $counter.html(remainingChars);
-
-    if (remainingChars < 0) {
-      $counter.addClass("red");
-    } else {
-      $counter.removeClass("red");
-    }
-  });
+$(function() {
+  $("#tweet-text").on("input", onInput);
 });
+
+const onInput = (event) => {
+  const $counter = $(".counter");
+
+  let inputLength = event.target.value.trim().length;
+  $counter.html(140 - inputLength);
+
+  if (inputLength < 0) {
+    $counter.addClass("red");
+  } else {
+    $counter.removeClass("red");
+  }
+};
