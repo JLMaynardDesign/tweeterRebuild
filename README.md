@@ -26,12 +26,16 @@ This repository is the starter code for the project: Students will fork and clon
 
 
 ## Screenshots
+- Screenshot 1: showing the starting condition
 !["Screenshot #1"](https://github.com/JLMaynardDesign/tweeterRebuild/blob/master/docs/starting_page.png)
 
+- Screenshot 2: showing the error message when user tries to send a blank tweet
 !["Screenshot #2"](https://github.com/JLMaynardDesign/tweeterRebuild/blob/master/docs/blank_tweet.png)
 
+- Screenshot 3: showing the error message when user tries to send a tweet that exceeds the allowed word count of 140 characters
 !["Screenshot #3"](https://github.com/JLMaynardDesign/tweeterRebuild/blob/master/docs/char_exceed.png)
 
+- Screenshot 4: new tweet added successfully and rendered on the page
 !["Screenshot #4"](https://github.com/JLMaynardDesign/tweeterRebuild/blob/master/docs/rendered_new_tweet.png) 
 
 
