@@ -117,7 +117,7 @@ const submitTweetPost = function (event) {
 };
 
 loadTweets();
-
+//change the formatting and call Jquery using this method so to resolve recurring issue with JQuery being undefined
 $(function () {
   console.log("document is ready");
   $("form.tweetSubmit").on("submit", submitTweetPost);
