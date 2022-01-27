@@ -10,7 +10,7 @@ const onInput = (event) => {
   let inputLength = event.target.value.trim().length;
   $counter.html(140 - inputLength);
 
-  if (inputLength < 0) {
+  if (inputLength > 140) {
     $counter.addClass("red");
   } else {
     $counter.removeClass("red");

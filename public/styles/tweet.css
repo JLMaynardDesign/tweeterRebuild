@@ -19,14 +19,14 @@
 
 .tweet-container .user-id {
   margin-left: auto;
-  color: #bd2ec9;
+  color: #d1a513;
   font-weight: 600;
 }
 
 .tweet-container > footer {
   display: flex;
   justify-content: space-between;
-  border-top: 2px solid #6923c4;
+  border-top: 2px solid #dd9b0b;
   padding-top: 0.5em;
   font-size: 0.75em;
 }

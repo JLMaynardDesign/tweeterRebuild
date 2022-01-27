@@ -17,7 +17,7 @@ label[for="tweet-text"] {
   width: 80%;
   border: 2px solid #428792;
   text-align: center;
-  color: purple;
+  color: rgb(180, 17, 17);
   display: none;
 }
 
@@ -34,12 +34,12 @@ label[for="tweet-text"] {
 .new-tweet button{
   font-family: "Bungee";
   color: #FFFFFF;
-  background-color: #6e85d4;
+  background-color: #dfb709;
 }
 
 .counter {
   font-family: "Bungee";
-  color: #a80515;
+  color: #dbdbd7ee;
 }
 
 .submit-count {
@@ -49,5 +49,5 @@ label[for="tweet-text"] {
 }
 
 .red {
-  color: #a80515;
+  color: rgb(180, 17, 17);
 }

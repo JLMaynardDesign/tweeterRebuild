@@ -15,8 +15,8 @@ html {
  */
 
 body {
-  color: #ad8b2d;
-  background-color: #f4f1ec;
+  color: #686242cc;
+  background-color: #0d4620e0;
   font-size: 24px;
 }
 
@@ -28,26 +28,10 @@ html {
  */
 
  main {
-   background-color: #FFDB58;
-   margin: auto;
-   width: 90%;
- }
-
- .body {
-   display: flex;
-   justify-content: center;
- }
-
- body > header {
-   width: 540px;
-   margin: 320px 4%;
-   padding: 4%;
- }
-
- .container {
-   width: 62%;
-   margin-top: 120px;
- }
+  background-color: #f0ece5af;
+  margin: auto;
+  width: 90%;
+}
 
 @media (min-width: 1024px) {
   nav {
